@@ -1,4 +1,6 @@
-  "name": "behringer-wing-mdl-catalog",
+catalog/
+wing_mdl_catalog_canonical.validated.json
+"name": "behringer-wing-mdl-catalog",
   "description": "Canonical, GitHub-ready catalog of Behringer WING 'mdl' identifiers, with validation status and practical recommendations for live use.",
   "version": "1.0.0",
   "generated_at": "2025-12-29T04:41:53",
