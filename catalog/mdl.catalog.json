@@ -1,0 +1,515 @@
+{
+  "name": "behringer-wing-mdl-catalog",
+  "description": "Canonical, GitHub-ready catalog of Behringer WING 'mdl' identifiers, with validation status and practical recommendations for live use.",
+  "version": "1.0.0",
+  "generated_at": "2025-12-29T04:41:53",
+  "sources": {
+    "documents": [
+      {
+        "file": "WING Remote Protocols v3.0.5.pdf",
+        "note": "Model strings and node examples."
+      },
+      {
+        "file": "WING Remote Protocols_V3.0.6-30.pdf",
+        "note": "Updated protocol; model string lists."
+      }
+    ],
+    "user_validation": [
+      {
+        "evidence": "Stereo.snap",
+        "note": "Stereo source encoding and one-fader stereo behavior."
+      },
+      {
+        "evidence": "GUSTER_WING_TEMPLATE_VALIDATION_V3.snap",
+        "note": "REC routing and BUS stereo indexing validated on console."
+      },
+      {
+        "evidence": "GUSTER_WING_TEMPLATE_FOH_IEM_V7_FIX_BUS12_LABEL.snap",
+        "note": "FX4 UltraTap + label fix validated."
+      },
+      {
+        "evidence": "VOX1_PROCESSING_CANONICAL.snap.snap",
+        "note": "Console-authored EQ/COMP/GATE block captured."
+      }
+    ]
+  },
+  "conventions": {
+    "validation_levels": {
+      "doc": "Appears explicitly as an mdl value in the protocol PDFs.",
+      "console": "Confirmed by loading/saving snap or observed on console UI in user tests.",
+      "inferred": "Common WING effect family but not yet proven in the provided docs or console tests."
+    },
+    "recommendation_tiers": {
+      "core": "Worth keeping on hand; quick, reliable, common live tasks.",
+      "situational": "Useful sometimes; depends on source/genre/need.",
+      "rare": "Edge-case; keep for completeness but not a default choice.",
+      "unvalidated": "Do not rely on this until validated."
+    },
+    "note": "This file separates 'validated_models' from 'unvalidated_models'. Only validated_models should be used for automated snap generation without additional confirmation."
+  },
+  "signal_flow": [
+    "filters_utility",
+    "gate_section_models",
+    "eq_models",
+    "dyn_models",
+    "fx_rack_models"
+  ],
+  "validated_models": {
+    "filters_utility": {
+      "description": "Enums used inside EQ and sidechains (not always stored as top-level mdl).",
+      "items": {
+        "PEQ": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "core"
+        },
+        "SHV": {
+          "validation": [
+            "doc",
+            "console"
+          ],
+          "tier": "core"
+        },
+        "LP12": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational"
+        },
+        "HP12": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational"
+        },
+        "BP": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "rare"
+        }
+      }
+    },
+    "gate_section_models": {
+      "description": "Selectable via gate.mdl. Includes gate/ducker/de-esser style processors.",
+      "items": {
+        "GATE": {
+          "validation": [
+            "doc",
+            "console"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "drums",
+            "toms",
+            "talkback control",
+            "cleanup"
+          ]
+        },
+        "DUCK": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "pastor mic vs music",
+            "announcement ducking"
+          ]
+        },
+        "9000G": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "snare/toms tighter",
+            "aggressive gating"
+          ]
+        },
+        "E88": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "color gate variant"
+          ]
+        },
+        "DS902": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "vocal de-ess",
+            "harsh cymbal control"
+          ]
+        }
+      }
+    },
+    "eq_models": {
+      "description": "Selectable via eq.mdl. These are safe to set directly.",
+      "items": {
+        "STD": {
+          "validation": [
+            "doc",
+            "console"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "general purpose"
+          ]
+        },
+        "SOUL": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "musical broad strokes",
+            "vocals/keys"
+          ]
+        },
+        "E88": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "tight mid shaping",
+            "drums/guitars"
+          ]
+        },
+        "E84": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "classic tone shaping",
+            "vocals/guitars"
+          ]
+        },
+        "F110": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "punchy tone",
+            "drums/bass"
+          ]
+        },
+        "PULSAR": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "rare",
+          "use_cases": [
+            "special tone / surgical variant"
+          ]
+        },
+        "PIA": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "rare",
+          "use_cases": [
+            "special tone / flavor"
+          ]
+        }
+      }
+    },
+    "dyn_models": {
+      "description": "Selectable via dyn.mdl (compressor/expander family).",
+      "items": {
+        "COMP": {
+          "validation": [
+            "doc",
+            "console"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "vocals",
+            "busses",
+            "general"
+          ]
+        },
+        "EXP": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "noise control without hard gating"
+          ]
+        },
+        "76": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "parallel comp",
+            "snare smash",
+            "vocal energy"
+          ]
+        },
+        "76LA": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "limiting",
+            "fast peak control"
+          ]
+        },
+        "LA": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "vocal leveling",
+            "bass leveling"
+          ]
+        },
+        "BDX160": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "kick/bass punch",
+            "drum bus snap"
+          ]
+        },
+        "FAIR": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "rare",
+          "use_cases": [
+            "vintage glue",
+            "bus color"
+          ]
+        },
+        "RED3": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "bus glue",
+            "vocals/guitars"
+          ]
+        },
+        "AUTO": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "hands-off leveling"
+          ]
+        },
+        "SOUL9000": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "rare",
+          "use_cases": [
+            "character compression"
+          ]
+        }
+      }
+    },
+    "fx_rack_models": {
+      "description": "Selectable via fx.<n>.mdl. Time-based and modulation FX.",
+      "items": {
+        "PLATE": {
+          "validation": [
+            "doc",
+            "console"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "vocal plate",
+            "snare plate"
+          ]
+        },
+        "VSS": {
+          "validation": [
+            "doc",
+            "console"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "big hall",
+            "lush verb"
+          ]
+        },
+        "ST-DL": {
+          "validation": [
+            "doc",
+            "console"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "quarter delay",
+            "stereo delay"
+          ]
+        },
+        "TAP-DL": {
+          "validation": [
+            "doc",
+            "console"
+          ],
+          "tier": "core",
+          "use_cases": [
+            "eighth / ping-pong style multi-tap"
+          ],
+          "notes": [
+            "UltraTap delay; avoid labeling as Shimmer"
+          ]
+        },
+        "TAPE-DL": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "warm repeats"
+          ]
+        },
+        "OILCAN": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "rare",
+          "use_cases": [
+            "lo-fi slap / special"
+          ]
+        },
+        "SHIMMER": {
+          "validation": [
+            "doc"
+          ],
+          "tier": "situational",
+          "use_cases": [
+            "pads/ambient swells"
+          ],
+          "notes": [
+            "Reverb, not a delay"
+          ]
+        }
+      }
+    }
+  },
+  "unvalidated_models": {
+    "description": "Models mentioned earlier in conversation but not proven in the provided docs or console tests. Keep for future validation; do not auto-inject.",
+    "items": {
+      "HALL": {
+        "tier": "unvalidated"
+      },
+      "ROOM": {
+        "tier": "unvalidated"
+      },
+      "V-ROOM": {
+        "tier": "unvalidated"
+      },
+      "V-REV": {
+        "tier": "unvalidated"
+      },
+      "BPLATE": {
+        "tier": "unvalidated"
+      },
+      "CHORUS": {
+        "tier": "unvalidated"
+      },
+      "DIMCRS": {
+        "tier": "unvalidated"
+      },
+      "PHASER": {
+        "tier": "unvalidated"
+      },
+      "FLANGER": {
+        "tier": "unvalidated"
+      },
+      "TREMOLO": {
+        "tier": "unvalidated"
+      },
+      "ROTARY": {
+        "tier": "unvalidated"
+      },
+      "PITCH": {
+        "tier": "unvalidated"
+      },
+      "DOUBLER": {
+        "tier": "unvalidated"
+      },
+      "GRAPHIC_EQ": {
+        "tier": "unvalidated"
+      },
+      "LIMITER": {
+        "tier": "unvalidated"
+      },
+      "MAXIMIZER": {
+        "tier": "unvalidated"
+      },
+      "D241": {
+        "tier": "unvalidated"
+      },
+      "WAVE": {
+        "tier": "unvalidated"
+      },
+      "DEQ": {
+        "tier": "unvalidated"
+      },
+      "WARM": {
+        "tier": "unvalidated"
+      },
+      "RIDE": {
+        "tier": "unvalidated"
+      },
+      "PSE": {
+        "tier": "unvalidated"
+      },
+      "CMB": {
+        "tier": "unvalidated"
+      }
+    }
+  },
+  "core_recommended_set": {
+    "description": "Quick-pinch set: validated, broadly useful, minimal surprises. Good defaults for worship FOH.",
+    "eq_models": [
+      "STD",
+      "SOUL",
+      "E84",
+      "F110"
+    ],
+    "gate_models": [
+      "GATE",
+      "DS902"
+    ],
+    "dyn_models": [
+      "COMP",
+      "LA",
+      "76",
+      "BDX160"
+    ],
+    "fx_models": [
+      "PLATE",
+      "VSS",
+      "ST-DL",
+      "TAP-DL"
+    ]
+  },
+  "next_validation_tasks": [
+    "Confirm additional fx.mdl values (HALL, ROOM, V-ROOM, V-REV, BPLATE) by locating them in the protocol PDFs or by saving a console-authored snap with each model loaded.",
+    "Confirm modulation fx.mdl values (CHORUS, DIMCRS, PHASER, FLANGER, TREMOLO, ROTARY) similarly.",
+    "Confirm utility fx (GRAPHIC_EQ, LIMITER, MAXIMIZER) and insert behavior."
+  ]
+}
